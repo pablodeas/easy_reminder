@@ -108,7 +108,7 @@ inserir() {
     cd "$PROJECT_DIR" || { echo -e "${RED}[ERRO] Não foi possível acessar o diretório do projeto.${RESET}"; return; }
 
     git add "$DATABASE"
-    git commit -m "lembrete: adiciona #$PROXIMO_ID - $DESCRICAO"
+    git commit -m "lembrete: #$PROXIMO_ID - $DESCRICAO"
     GIT_PUSH_OUTPUT=$(git push 2>&1)
     GIT_PUSH_STATUS=$?
 
@@ -151,4 +151,7 @@ if [ ! -f "$DATABASE" ]; then
     exit 1
 fi
 
+listar
+
 menu
+
