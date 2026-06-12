@@ -4,20 +4,13 @@ Envia lembretes automaticamente para um grupo do Telegram lendo um arquivo de te
 
 ---
 
-## Como funciona
-
-1. Lê o arquivo `database.txt` linha a linha
-2. Monta uma mensagem formatada com todos os lembretes
-3. Envia a mensagem para um grupo do Telegram via Bot API
-
----
-
 ## Estrutura do projeto
 
 ```
 easy_reminder/
-├── main.py          # Script principal
-├── run_reminder.sh  # Script de automação (git pull + execução)
+├── main.py          # Lê o database.txt e envia os lembretes para o Telegram
+├── run_reminder.sh  # Faz git pull e executa o main.py (usado pelo cron)
+├── manager.sh       # Gerencia os lembretes via menu interativo
 ├── database.txt     # Arquivo de lembretes
 └── .venv/           # Ambiente virtual Python
 ```
@@ -29,7 +22,7 @@ easy_reminder/
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/pablodeas/easy_reminder
+git clone https://github.com/seu-usuario/easy_reminder.git
 cd easy_reminder
 ```
 
@@ -44,8 +37,7 @@ pip install requests
 ### 3. Configure o bot do Telegram
 
 - Crie um bot via [@BotFather](https://t.me/BotFather) e copie o token
-- Adicione o bot ao grupo desejado
-- Envie uma mensagem no grupo e acesse `https://api.telegram.org/bot<TOKEN>/getUpdates` para obter o `chat_id` (valor negativo, ex: `-1001234567890`)
+- Adicione o bot ao grupo e acesse `https://api.telegram.org/bot<TOKEN>/getUpdates` para obter o `chat_id`
 
 ### 4. Preencha as credenciais em `main.py`
 
@@ -66,15 +58,26 @@ ID;PRAZO;DESCRICAO
 
 ---
 
-## Automação com cron
-
-Copie o script para o servidor e dê permissão de execução:
+## Gerenciando lembretes (manager.sh)
 
 ```bash
-chmod +x /var/projects/easy_reminder/run_reminder.sh
+chmod +x manager.sh
+./manager.sh
 ```
 
-Adicione ao crontab (`crontab -e`) para rodar todo dia às 07:25:
+O menu oferece três opções:
+
+- **Listar** — exibe todos os lembretes cadastrados
+- **Inserir** — adiciona um novo lembrete e faz `git push` automaticamente
+- **Apagar** — remove um lembrete pelo ID e faz `git push` automaticamente
+
+---
+
+## Automação com cron
+
+```bash
+chmod +x run_reminder.sh
+```
 
 ```cron
 25 07 * * * /var/projects/easy_reminder/run_reminder.sh
