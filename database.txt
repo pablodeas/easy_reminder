@@ -1,6 +1,5 @@
 ID;PRAZO;DESCRICAO
 01;00/00;Verificar Dependência e Rematrícula FACULDADE.
 02;00/00;Amostra Cloud Watch - Projeto Auditoria.
-03;15/06;Tags Hosts Zabbix
 04;15/06;Corrigir Hosts Zabbix
 05;16/06;Atualizaar o status dos Projetos
