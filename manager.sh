@@ -57,6 +57,23 @@ apagar() {
         TMPFILE=$(mktemp)
         grep -v "^${ID_APAGAR};" "$DATABASE" > "$TMPFILE" && mv "$TMPFILE" "$DATABASE"
         echo -e "${GREEN}✅ Lembrete #$ID_APAGAR removido com sucesso.${RESET}"
+
+        # ── Git: salvar alteração no repositório ─────────────────────
+        echo ""
+        echo -e "${CYAN}📦 Salvando alteração no repositório...${RESET}"
+        cd "$PROJECT_DIR" || { echo -e "${RED}[ERRO] Não foi possível acessar o diretório do projeto.${RESET}"; return; }
+
+        git add "$DATABASE"
+        git commit -m "lembrete: remove #$ID_APAGAR"
+        GIT_PUSH_OUTPUT=$(git push 2>&1)
+        GIT_PUSH_STATUS=$?
+
+        if [ $GIT_PUSH_STATUS -eq 0 ]; then
+            echo -e "${GREEN}✅ Alteração enviada ao repositório com sucesso.${RESET}"
+        else
+            echo -e "${RED}[ERRO] Falha no git push:${RESET}"
+            echo "$GIT_PUSH_OUTPUT"
+        fi
     else
         echo -e "Operação cancelada."
     fi
@@ -108,7 +125,7 @@ inserir() {
     cd "$PROJECT_DIR" || { echo -e "${RED}[ERRO] Não foi possível acessar o diretório do projeto.${RESET}"; return; }
 
     git add "$DATABASE"
-    git commit -m "lembrete: #$PROXIMO_ID - $DESCRICAO"
+    git commit -m "lembrete: adiciona #$PROXIMO_ID - $DESCRICAO"
     GIT_PUSH_OUTPUT=$(git push 2>&1)
     GIT_PUSH_STATUS=$?
 
@@ -154,4 +171,3 @@ fi
 listar
 
 menu
-
