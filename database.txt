@@ -3,3 +3,4 @@ ID;PRAZO;DESCRICAO
 02;00/00;Amostra Cloud Watch - Projeto Auditoria.
 06;18/06;Corrigir Hosts AWS no Zabbix
 ;20/01;Monitorar execução Job Reindex SVWPRD0076
+07;00/00;TESTEtesteTeste
