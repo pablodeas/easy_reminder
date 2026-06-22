@@ -16,6 +16,9 @@ BOLD='\033[1m'
 RESET='\033[0m'
 # ─────────────────────────────────────────────
 
+# Reseta o terminal para evitar bugs de edição de linha (backspace etc.)
+stty sane 2>/dev/null
+
 listar() {
     echo ""
     echo -e "${CYAN}${BOLD}📋 LEMBRETES CADASTRADOS${RESET}"
@@ -36,8 +39,7 @@ listar() {
 apagar() {
     listar
 
-    echo -e "${YELLOW}Digite o ID do lembrete que deseja apagar:${RESET} "
-    read -r ID_APAGAR
+    read -e -r -p "$(echo -e ${YELLOW}Digite o ID do lembrete que deseja apagar:${RESET} )" ID_APAGAR
 
     # Verifica se o ID existe
     if ! grep -q "^${ID_APAGAR};" "$DATABASE"; then
@@ -49,8 +51,7 @@ apagar() {
     LINHA=$(grep "^${ID_APAGAR};" "$DATABASE")
     echo -e "${YELLOW}Apagar o seguinte registro?${RESET}"
     echo -e "  → $LINHA"
-    echo -ne "${YELLOW}Confirmar? (s/N):${RESET} "
-    read -r CONFIRMA
+    read -e -r -p "$(echo -e ${YELLOW}Confirmar? \(s/N\):${RESET} )" CONFIRMA
 
     if [[ "$CONFIRMA" =~ ^[Ss]$ ]]; then
         # Remove a linha do arquivo
@@ -60,7 +61,7 @@ apagar() {
 
         # ── Git: salvar alteração no repositório ─────────────────────
         echo ""
-        echo -e "${CYAN}📦 Salvando alteração no repositório...${RESET}"
+        echo -e "${CYAN}��� Salvando alteração no repositório...${RESET}"
         cd "$PROJECT_DIR" || { echo -e "${RED}[ERRO] Não foi possível acessar o diretório do projeto.${RESET}"; return; }
 
         git add "$DATABASE"
@@ -86,19 +87,19 @@ inserir() {
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
 
     # Gera próximo ID automaticamente
-    ULTIMO_ID=$(tail -n +2 "$DATABASE" | cut -d';' -f1 | sort -n | tail -1)
+    # (usa awk para converter "08", "09" etc. em números decimais,
+    #  evitando o bug do bash que trata 08/09 como octal inválido)
+    ULTIMO_ID=$(tail -n +2 "$DATABASE" | awk -F';' '$1 != "" {print $1+0}' | sort -n | tail -1)
     PROXIMO_ID=$(printf "%02d" $(( ${ULTIMO_ID:-0} + 1 )))
     echo -e "  ID gerado automaticamente: ${BOLD}#$PROXIMO_ID${RESET}"
 
-    echo -ne "  📅 Prazo (ex: 25/05): "
-    read -r PRAZO
+    read -e -r -p "  📅 Prazo (ex: 25/05): " PRAZO
     if [[ -z "$PRAZO" ]]; then
         echo -e "${RED}[ERRO] Prazo não pode ser vazio.${RESET}"
         return
     fi
 
-    echo -ne "  📝 Descrição: "
-    read -r DESCRICAO
+    read -e -r -p "  📝 Descrição: " DESCRICAO
     if [[ -z "$DESCRICAO" ]]; then
         echo -e "${RED}[ERRO] Descrição não pode ser vazia.${RESET}"
         return
@@ -108,8 +109,7 @@ inserir() {
     echo ""
     echo -e "${YELLOW}Inserir o seguinte lembrete?${RESET}"
     echo -e "  → $NOVA_LINHA"
-    echo -ne "${YELLOW}Confirmar? (s/N):${RESET} "
-    read -r CONFIRMA
+    read -e -r -p "$(echo -e ${YELLOW}Confirmar? \(s/N\):${RESET} )" CONFIRMA
 
     if [[ ! "$CONFIRMA" =~ ^[Ss]$ ]]; then
         echo -e "Operação cancelada."
@@ -149,8 +149,7 @@ menu() {
         echo -e "${BOLD}║  3.${RESET} Apagar lembrete                   ${BOLD}║${RESET}"
         echo -e "${BOLD}║  0.${RESET} Sair                              ${BOLD}║${RESET}"
         echo -e "${BOLD}╚══════════════════════════════════════╝${RESET}"
-        echo -ne "  Escolha uma opção: "
-        read -r OPCAO
+        read -e -r -p "  Escolha uma opção: " OPCAO
 
         case $OPCAO in
             1) listar ;;
