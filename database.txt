@@ -4,3 +4,4 @@ ID;PRAZO;DESCRICAO
 06;18/06;Corrigir Hosts AWS no Zabbix
 07;20/06;Monitorar execução Job Reindex
 08;29/05;No dia 29/05, solicitar ao Zonta que acrescente a semana de sobreaviso a folha de ponto.
+;24/06;Executar o Job as 22hrs
