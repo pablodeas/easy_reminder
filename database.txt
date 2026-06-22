@@ -4,3 +4,4 @@ ID;PRAZO;DESCRICAO
 06;18/06;Corrigir Hosts AWS no Zabbix
 08;29/05;No dia 29/05, solicitar ao Zonta que acrescente a semana de sobreaviso a folha de ponto.
 09;24/06;Executar o Job do SQL Server às 22/23hrs.
+10;24/06;Migração MYSQL-PRD para MYSQL-PROD. Verificar com Paulo Paz o que foi questionado.
