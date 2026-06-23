@@ -6,3 +6,4 @@ ID;PRAZO;DESCRICAO
 09;24/06;Executar o Job do SQL Server às 22/23hrs.
 10;24/06;Migração MYSQL-PRD para MYSQL-PROD. Verificar com Paulo Paz o que foi questionado.
 11;27/05;Atualização Cluster AWS GPM-20854 - Fazer snapshot antes.
+12;24/06;Refresh MySQL, fazer bkp para quinta executar o import.
