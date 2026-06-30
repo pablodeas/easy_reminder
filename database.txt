@@ -5,3 +5,4 @@ ID;PRAZO;DESCRICAO
 11;27/05;Atualização Cluster AWS GPM-20854 - Fazer snapshot antes.
 13;03/07;ASSUNTO REUNIAO: Implementar um serviço de cofre de senhas para a equipe.
 14;03/07;Bases de DEV da Sheslen foram feitas, faltam as do Demetrius. Finalizando as dele, seguir para HML.
+15;03/07;Migração MYSQL-PRD para MYSQL-PROD.
