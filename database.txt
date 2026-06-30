@@ -5,3 +5,4 @@ ID;PRAZO;DESCRICAO
 13;03/07;ASSUNTO REUNIAO: Implementar um serviço de cofre de senhas para a equipe.
 14;03/07;Bases de DEV da Sheslen foram feitas, faltam as do Demetrius. Finalizando as dele, seguir para HML.
 15;03/07;Migração MYSQL-PRD para MYSQL-PROD.
+16;03/07;Fazer o backend para o automatizador de usuários.
