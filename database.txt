@@ -7,3 +7,4 @@ ID;PRAZO;DESCRICAO
 15;03/07;Migração MYSQL-PRD para MYSQL-PROD.
 16;03/07;Fazer o backend para o automatizador de usuários.
 17;31/06;Verificar se o UpdateStats executou com sucesso
+18;31/07;Assistir curso obrigatório: https://www.cecautoglass.com.br/course/view.php?id=1727
