@@ -3,10 +3,10 @@
 # ─────────────────────────────────────────────
 #  CONFIGURAÇÕES  ← edite apenas esta seção
 # ─────────────────────────────────────────────
-PROJECT_DIR="/var/projects/easy_reminder"
+PROJECT_DIR="/var/repos/easy_reminder"
 PYTHON="$PROJECT_DIR/.venv/bin/python"
 MAIN="$PROJECT_DIR/main.py"
-LOG="/var/log/easy_reminder.log"
+LOG="/var/repos/easy_reminder.log"
 # ─────────────────────────────────────────────
 
 log() {
