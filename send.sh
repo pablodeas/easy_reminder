@@ -6,7 +6,8 @@
 PROJECT_DIR="/var/repos/easy_reminder"
 PYTHON="$PROJECT_DIR/.venv/bin/python"
 MAIN="$PROJECT_DIR/main.py"
-LOG="/var/repos/easy_reminder.log"
+LOG="$PROJECT_DIR/easy_reminder.log" 
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # ─────────────────────────────────────────────
 
 log() {
@@ -23,6 +24,9 @@ cd "$PROJECT_DIR" || {
 
 # 2. Atualizar o repositório
 log "Executando git pull..."
+
+# Se o repositório for privado via SSH, descomente a linha abaixo apontando para sua chave privada:
+GIT_SSH_COMMAND="ssh -i /home/ubuntu/.ssh/prod_repo -o IdentitiesOnly=yes" git pull 2>&1
 GIT_OUTPUT=$(git pull 2>&1)
 GIT_STATUS=$?
 
