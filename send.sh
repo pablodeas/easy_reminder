@@ -25,9 +25,7 @@ cd "$PROJECT_DIR" || {
 # 2. Atualizar o repositório
 log "Executando git pull..."
 
-# Se o repositório for privado via SSH, descomente a linha abaixo apontando para sua chave privada:
-GIT_SSH_COMMAND="ssh -i /home/ubuntu/.ssh/prod_repo -o IdentitiesOnly=yes" git pull 2>&1
-GIT_OUTPUT=$(git pull 2>&1)
+GIT_OUTPUT=$(GIT_SSH_COMMAND="ssh -i /home/ubuntu/.ssh/prod_repo -o IdentitiesOnly=yes" git pull 2>&1)
 GIT_STATUS=$?
 
 log "$GIT_OUTPUT"
