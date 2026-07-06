@@ -5,5 +5,4 @@ ID;PRAZO;DESCRICAO
 15;03/07;Migração MYSQL-PRD para MYSQL-PROD.
 16;03/07;Fazer o backend para o automatizador de usuários.
 18;31/07;Assistir curso obrigatório: https://www.cecautoglass.com.br/course/view.php?id=1727
-20;03/07;ASSUNTO REUNIAO: Bases de DEV mysql atualizadas, vou seguir para as bases de HML semana que vem.
 21;10/07;ASSUNTO REUNIAO: Bases MySQL Dev atualizadas, seguindo para homologacao.
