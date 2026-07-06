@@ -2,7 +2,6 @@ ID;PRAZO;DESCRICAO
 01;00/00;Verificar Dependência e Rematrícula FACULDADE.
 02;00/00;Amostra Cloud Watch - Projeto Auditoria.
 06;18/06;Corrigir Hosts AWS no Zabbix
-14;03/07;Bases de DEV da Sheslen foram feitas, faltam as do Demetrius. Finalizando as dele, seguir para HML.
 15;03/07;Migração MYSQL-PRD para MYSQL-PROD.
 16;03/07;Fazer o backend para o automatizador de usuários.
 18;31/07;Assistir curso obrigatório: https://www.cecautoglass.com.br/course/view.php?id=1727
