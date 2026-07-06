@@ -9,3 +9,4 @@ ID;PRAZO;DESCRICAO
 18;31/07;Assistir curso obrigatório: https://www.cecautoglass.com.br/course/view.php?id=1727
 19;03/07;ASSUNTO REUNIAO: Rotinas de UpdateStats e Rebuild/ReorgIndex foram implementadas e executadas com sucesso na SVWPRD0076
 20;03/07;ASSUNTO REUNIAO: Bases de DEV mysql atualizadas, vou seguir para as bases de HML semana que vem.
+21;10/07;ASSUNTO REUNIAO: Bases MySQL Dev atualizadas, seguindo para homologacao.
