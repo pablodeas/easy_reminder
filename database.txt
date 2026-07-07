@@ -9,3 +9,4 @@ ID;PRAZO;DESCRICAO
 22;10/07;Corrigir compensação LogOff. Alterar data 04/07 para 03/07.
 23;10/07;backend parcial do Projeto de Permissões feito, subir no repositório que o Thiago passar.
 24;08/07;Lavar o motor do carro.
+25;10/07;Deixar o carro de manhã no mecânico pra ver o Motor, Caixa de Direção e se possível, colocar o Abafador do escapamento.
