@@ -13,3 +13,4 @@ ID;PRAZO;DESCRICAO
 26;08/07;Entrar em contato com faculdade para ver matérias que estão faltando
 27;08/07;Verificar com Carlos sobre a troca da placa.
 28;00:00;Mãe devendo R$400
+29;09/07;Ligar para empresa para verificar se a placa está pronta. 27998474651
