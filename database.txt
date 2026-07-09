@@ -3,7 +3,6 @@ ID;PRAZO;DESCRICAO
 02;00/00;Amostra Cloud Watch - Projeto Auditoria.
 06;18/06;Corrigir Hosts AWS no Zabbix
 15;03/07;Migração MYSQL-PRD para MYSQL-PROD.
-16;03/07;Fazer o backend para o automatizador de usuários.
 18;31/07;Assistir curso obrigatório: https://www.cecautoglass.com.br/course/view.php?id=1727
 21;10/07;ASSUNTO REUNIAO: Bases MySQL Dev atualizadas, seguindo para homologacao.
 22;10/07;Corrigir compensação LogOff. Alterar data 04/07 para 03/07.
