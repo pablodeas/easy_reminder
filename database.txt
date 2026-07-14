@@ -10,3 +10,4 @@ ID;PRAZO;DESCRICAO
 28;00:00;Mãe devendo R$400
 29;18/07;Migração banco "plataformahub" essa semana. Fazer o backup na sexta e a importação no sábado.
 30;14/07;Criar a GMUD para a migração dessa semana.
+31;18/07;teste teste
