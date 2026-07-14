@@ -33,7 +33,6 @@ listar() {
 
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
     echo -e "  Total: ${BOLD}$TOTAL lembrete(s)${RESET}"
-    echo ""
 }
 
 apagar() {
@@ -61,7 +60,7 @@ apagar() {
 
         # ── Git: salvar alteração no repositório ─────────────────────
         echo ""
-        echo -e "${CYAN}��� Salvando alteração no repositório...${RESET}"
+        echo -e "${CYAN}��� Salvando alteração no repositório...${RESET}"
         cd "$PROJECT_DIR" || { echo -e "${RED}[ERRO] Não foi possível acessar o diretório do projeto.${RESET}"; return; }
 
         git add "$DATABASE"
@@ -78,7 +77,6 @@ apagar() {
     else
         echo -e "Operação cancelada."
     fi
-    echo ""
 }
 
 inserir() {
@@ -135,7 +133,6 @@ inserir() {
         echo -e "${RED}[ERRO] Falha no git push:${RESET}"
         echo "$GIT_PUSH_OUTPUT"
     fi
-    echo ""
 }
 
 menu() {
@@ -168,7 +165,5 @@ if [ ! -f "$DATABASE" ]; then
 fi
 
 git pull
-
-listar
 
 menu
