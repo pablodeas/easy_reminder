@@ -44,9 +44,7 @@ def formatar_mensagem(lembretes: list[dict]) -> str:
         descricao = item.get("DESCRICAO", "?")
 
         linhas.append(
-            f"🔔 *#{id_val}*\n"
-            f"📝 {descricao}\n"
-            f"📅 Prazo: `{prazo}`"
+            f"🔔*#{id_val}* 📅`{prazo}` 📝{descricao}"
         )
         linhas.append("---")
 

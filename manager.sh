@@ -167,6 +167,8 @@ if [ ! -f "$DATABASE" ]; then
     exit 1
 fi
 
+git pull
+
 listar
 
 menu
