@@ -3,7 +3,6 @@ ID;PRAZO;DESCRICAO
 06;18/06;Corrigir Hosts AWS no Zabbix
 15;03/07;Migração MYSQL-PRD para MYSQL-PROD.
 18;31/07;Assistir curso obrigatório: https://www.cecautoglass.com.br/course/view.php?id=1727
-21;10/07;ASSUNTO REUNIAO: Bases MySQL Dev atualizadas, seguindo para homologacao.
 22;10/07;Corrigir compensação LogOff. Alterar data 04/07 para 03/07.
 23;10/07;backend parcial do Projeto de Permissões feito, subir no repositório que o Thiago passar.
 26;08/07;Entrar em contato com faculdade para ver matérias que estão faltando
