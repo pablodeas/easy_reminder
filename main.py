@@ -4,12 +4,17 @@ import csv
 import os
 import subprocess
 import sys
+import time
+import requests
 
 # ─────────────────────────────────────────────
 #  CONFIGURAÇÕES  ← edite apenas esta seção
 # ─────────────────────────────────────────────
+BOT_TOKEN  = "8027753358:AAFDr0xguOatJ__WA-TNi26SYhuL6OkHoo8"
+CHAT_ID    = "1070546537"
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATABASE = os.path.join(PROJECT_DIR, "database.txt")
+DATABASE   = os.path.join(PROJECT_DIR, "database.txt")
+DELAY_MSGS = 1.0  # segundos entre envios
 # ─────────────────────────────────────────────
 
 
@@ -70,28 +75,67 @@ def reordenar_ids(caminho: str) -> list[dict]:
     return lembretes
 
 
+def gerar_texto_lembretes(lembretes: list[dict]) -> str:
+    """Gera a mensagem calculando a largura máxima de cada coluna para alinhar perfeitamente."""
+    if not lembretes:
+        return "--- LEMBRETES CADASTRADOS ---\nNenhum lembrete encontrado."
+
+    # Calcula o tamanho do maior texto em cada coluna para fazer o alinhamento
+    max_id     = max((len(item.get("ID", "00")) for item in lembretes), default=2)
+    max_prazo  = max((len(item.get("PRAZO", "")) for item in lembretes), default=5)
+    max_titulo = max((len(item.get("TITULO", "")) for item in lembretes), default=6)
+
+    linhas = ["--- LEMBRETES CADASTRADOS ---"]
+    for item in lembretes:
+        id_val    = item.get("ID", "00").ljust(max_id)
+        prazo     = item.get("PRAZO", "").ljust(max_prazo)
+        titulo    = item.get("TITULO", "").ljust(max_titulo)
+        descricao = item.get("DESCRICAO", "")
+
+        linhas.append(
+            f"ID: {id_val} | Prazo: {prazo} | Título: {titulo} | Descrição: {descricao}".rstrip()
+        )
+
+    return "\n".join(linhas)
+
+
 # ─────────────────────────────────────────────
 #  AÇÕES DO SCRIPT
 # ─────────────────────────────────────────────
 
 def acao_listar():
-    """Exibe a lista de lembretes no terminal no formato clássico requested."""
+    """Exibe a lista de lembretes alinhada no terminal."""
     lembretes = ler_lembretes(DATABASE)
-    print("--- LEMBRETES CADASTRADOS ---")
+    print(gerar_texto_lembretes(lembretes))
+
+
+def acao_enviar_telegram():
+    """Envia a lista alinhada para o Telegram em bloco de código (fonte monoespaçada)."""
+    lembretes = ler_lembretes(DATABASE)
     if not lembretes:
-        print("Nenhum lembrete encontrado.")
+        print("Nenhum lembrete encontrado para enviar ao Telegram.")
         return
 
-    for item in lembretes:
-        id_val = item.get("ID", "00")
-        prazo = item.get("PRAZO", "")
-        titulo = item.get("TITULO", "")
-        descricao = item.get("DESCRICAO", "")
+    texto_mensagem = gerar_texto_lembretes(lembretes)
+    
+    # <pre> garante que o Telegram utilize fonte monoespaçada preservando a formatação
+    texto_formatado = f"<pre>{texto_mensagem}</pre>"
 
-        if titulo:
-            print(f"ID: {id_val} | Prazo: {prazo} | Título: {titulo} | Descrição: {descricao}")
-        else:
-            print(f"ID: {id_val} | Prazo: {prazo} | Descrição: {descricao}")
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    payload = {
+        "chat_id": CHAT_ID,
+        "text": texto_formatado,
+        "parse_mode": "HTML"
+    }
+
+    print("📤 Enviando lembretes para o Telegram...")
+    try:
+        resposta = requests.post(url, json=payload, timeout=10)
+        resposta.raise_for_status()
+        print("✅ Lembretes enviados com sucesso para o Telegram!")
+        time.sleep(DELAY_MSGS)
+    except requests.exceptions.RequestException as e:
+        print(f"❌ [ERRO] Falha ao enviar para o Telegram: {e}")
 
 
 def acao_inserir():
@@ -99,7 +143,7 @@ def acao_inserir():
     if len(sys.argv) < 5:
         print("❌ [ERRO] Parâmetros insuficientes para inserção.")
         print('Uso correto: python3 main.py insert "PRAZO" "TÍTULO" "DESCRIÇÃO"')
-        print('Exemplo:     python3 main.py insert "25/05" "Reunião" "Reunião de alinhamento com equipe"')
+        print('Exemplo:     python3 main.py insert "25/05" "Reunião" "Reunião de alinhamento"')
         sys.exit(1)
 
     prazo = sys.argv[2].strip()
@@ -178,6 +222,7 @@ Uso: python3 main.py <comando> [argumentos]
 
 Comandos disponíveis:
   l, list                                        Listar lembretes cadastrados
+  s, send, t, telegram                           Enviar lembretes para o Telegram
   i, insert "PRAZO" "TÍTULO" "DESCRIÇÃO"         Inserir um lembrete em uma única linha
   d, delete <ID>                                 Deletar um lembrete pelo ID (ex: 05)
   h, help                                        Exibir esta mensagem de ajuda
@@ -196,6 +241,8 @@ def main():
 
     if comando in ["l", "list"]:
         acao_listar()
+    elif comando in ["s", "send", "t", "telegram"]:
+        acao_enviar_telegram()
     elif comando in ["i", "insert"]:
         acao_inserir()
     elif comando in ["d", "delete"]:
