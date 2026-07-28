@@ -1,10 +1,10 @@
 ID;PRAZO;TITULO;DESCRICAO
-01;00/00;;Amostra Cloud Watch - Projeto Auditoria.
-02;03/07;;Migração MYSQL-PRD para MYSQL-PROD.
-03;31/07;;Assistir curso obrigatório: https://www.cecautoglass.com.br/course/view.php?id=1727
-04;10/07;;Corrigir compensação LogOff. Alterar data 04/07 para 03/07.
-05;08/07;;Entrar em contato com faculdade para ver matérias que estão faltando
-06;00:00;;Mãe devendo R$600
-07;31/07;;Atualização GENESISPREMIACAO em APPINTHML, confirmar com Thiago.
-08;29/07;;Atualização Bases MySQL HML (Sheslen e Demetrius/Arthur Norberto), confirmar e executar.
-09;29/07;;Utilizar a planilha do CMDB para solicitar permissão de acesso ao Servidor de Rotinas.
+01;00/00;Projeto;Amostra Cloud Watch - Projeto Auditoria.
+02;03/07;Projeto;Migração MYSQL-PRD para MYSQL-PROD.
+03;31/07;Curso;Assistir curso obrigatório: https://www.cecautoglass.com.br/course/view.php?id=1727
+04;10/07;Corrigir;Corrigir compensação LogOff. Alterar data 04/07 para 03/07.
+05;08/07;Urgente;Entrar em contato com faculdade para ver matérias que estão faltando
+06;00:00;Aguardar;Mãe devendo R$600
+07;31/07;Solicitação;Atualização GENESISPREMIACAO em APPINTHML, confirmar com Thiago.
+08;29/07;Solicitação;Atualização Bases MySQL HML (Sheslen e Demetrius/Arthur Norberto), confirmar e executar.
+09;29/07;Automação;Utilizar a planilha do CMDB para solicitar permissão de acesso ao Servidor de Rotinas.
