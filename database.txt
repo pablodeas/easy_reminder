@@ -9,3 +9,4 @@ ID;PRAZO;TITULO;DESCRICAO
 08;29/07;Solicitação;Atualização Bases MySQL HML (Sheslen e Demetrius/Arthur Norberto), confirmar e executar.
 09;29/07;Automação;Utilizar a planilha do CMDB para solicitar permissão de acesso ao Servidor de Rotinas.
 10;31/07;Validar com Maranhão;Chamado de criação de relatório REQ-332017, validar com Maranhão pois ele já estava tratando do assunto.
+11;31/07;Pesquisar;Fundos: GCRA11, SMRE11, TRXB11
