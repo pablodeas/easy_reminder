@@ -8,4 +8,3 @@ ID;PRAZO;DESCRICAO
 7;31/07;Atualização GENESISPREMIACAO em APPINTHML, confirmar com Thiago.
 8;29/07;Atualização Bases MySQL HML (Sheslen e Demetrius/Arthur Norberto), confirmar e executar.
 9;29/07;Utilizar a planilha do CMDB para solicitar permissão de acesso ao Servidor de Rotinas.
-10;00/00;Teste Teste
