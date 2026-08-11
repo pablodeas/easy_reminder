@@ -5,5 +5,4 @@ ID;PRAZO;TITULO;DESCRICAO
 04;00:00;Aguardar;Mãe devendo R$600
 05;31/07;Solicitação;Atualização GENESISPREMIACAO em APPINTHML, confirmar com Thiago.
 06;29/07;Solicitação;Atualização Bases MySQL HML (Sheslen e Demetrius/Arthur Norberto), confirmar e executar.
-07;29/07;Automação;Utilizar a planilha do CMDB para solicitar permissão de acesso ao Servidor de Rotinas.
-08;07/08;IMPORTANTE;Foque nos projetos, precisamos entregar.
+07;07/08;IMPORTANTE;Foque nos projetos, precisamos entregar.
