@@ -4,4 +4,3 @@ ID;PRAZO;TITULO;DESCRICAO
 03;08/07;Urgente;Entrar em contato com faculdade para ver matérias que estão faltando
 04;00:00;Aguardar;Mãe devendo R$600
 05;31/07;Solicitação;Atualização GENESISPREMIACAO em APPINTHML, confirmar com Thiago.
-06;07/08;IMPORTANTE;Foque nos projetos, precisamos entregar.
