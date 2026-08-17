@@ -5,3 +5,4 @@ ID;PRAZO;TITULO;DESCRICAO
 04;00:00;Aguardar;Mãe devendo R$600
 05;21/08;SEMANA;Projeto Auditoria
 06;21/08;SEMANA;Automação Jira, ver com Rosimeire
+07;21/08;SEMANA;Atualização bases On-Premise
