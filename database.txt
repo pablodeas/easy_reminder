@@ -3,3 +3,4 @@ ID;PRAZO;TITULO;DESCRICAO
 02;21/08;SEMANA;Projeto Auditoria
 03;21/08;SEMANA;Automação Jira, ver com Rosimeire
 04;21/08;SEMANA;Atualização bases On-Premise
+05;30/08;SEMANA;Verificar Dependência Faculdade
