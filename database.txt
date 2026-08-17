@@ -1,6 +1,5 @@
 ID;PRAZO;TITULO;DESCRICAO
-01;03/07;Projeto;Migração MYSQL-PRD para MYSQL-PROD.
-02;00:00;Aguardar;Mãe devendo R$600
-03;21/08;SEMANA;Projeto Auditoria
-04;21/08;SEMANA;Automação Jira, ver com Rosimeire
-05;21/08;SEMANA;Atualização bases On-Premise
+01;00:00;Aguardar;Mãe devendo R$600
+02;21/08;SEMANA;Projeto Auditoria
+03;21/08;SEMANA;Automação Jira, ver com Rosimeire
+04;21/08;SEMANA;Atualização bases On-Premise
